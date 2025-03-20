@@ -12,6 +12,11 @@ To install the dependencies:
 pip install -r requirements.txt
 ```
 
+Tasks Completed:
+- Created the all_classes.json file and new add-class endpoint to allow users to add new classes (append)
+- Added in code to compute_embeddings function so that it repulls the current classes
+- Tested the new code with the examples shown below.
+
 **Adding Classes to all_classes.json examples:**
 
 ![Adding_books_to_all_class_file](https://github.com/user-attachments/assets/a23753eb-7229-4423-b0aa-2ea5ffd62fea)
@@ -30,6 +35,6 @@ pip install -r requirements.txt
 
 ![Testing_classification_for_nature](https://github.com/user-attachments/assets/9dbc2728-fe5a-44ae-a399-84d23b5512d2)
 
-**Testing an error if the user does not provide a Class when using the add-class api:**
+**Testing an error if the user does not provide a Class when using the add-class endpoint:**
 
 ![testing_error](https://github.com/user-attachments/assets/9743d81e-a842-45ff-8314-b807d8f0d5ab)
