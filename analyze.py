@@ -1,3 +1,4 @@
+import json
 from transformers import pipeline
 from sentence_transformers import SentenceTransformer
 import numpy as np
@@ -6,17 +7,22 @@ sentiment_pipeline = pipeline("sentiment-analysis")
 model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 
 
-EMAIL_CLASSES = [
-    "Work", "Sports", "Food"
-]
+
+
+def get_classes():
+        with open('all_classes.json','r') as file:
+            return json.load(file)
+
+EMAIL_CLASSES = get_classes()
 
 def get_sentiment(text):
     response = sentiment_pipeline(text)
     return response
 
 def compute_embeddings(embeddings = EMAIL_CLASSES):
-    embeddings = model.encode(embeddings)
-    return zip(EMAIL_CLASSES, embeddings)
+    classes = get_classes()
+    embeddings = model.encode(classes)
+    return zip(classes, embeddings)
 
 def classify_email(text):
     # Encode the input text
